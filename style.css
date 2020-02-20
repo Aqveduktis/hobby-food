@@ -1,0 +1,56 @@
+/* fancy button */
+
+body {
+    background-color: #333;
+    color: orange;
+}
+ .container{
+        width: 1080px;
+    }
+
+.light {
+ background-color: aliceblue;
+    color: midnightblue;
+    }
+.restaurants {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill, 600px);
+    grid-row-gap: 0.5em;
+    grid-column-gap: 1em;
+}
+
+
+.food {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    max-width: 100%;
+}
+p{
+    max-width: 100%;
+}
+
+@media screen and (max-width: 1200px){
+    .container{
+        width: 95vw;
+    }
+} 
+
+@media screen and (max-width: 992px){
+  .restaurants {
+   
+    grid-template-columns: repeat(2, 1fr);
+    
+      
+    
+}  
+} 
+
+@media screen and (max-width: 576px) {
+      .restaurants {
+    grid-template-columns: repeat(1, 1fr);
+    
+}
+}
+
