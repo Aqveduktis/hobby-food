@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Weather App &#9730;</title>
+</head>
+
+<body>
+    <!-- container for App -->
+    <div class="container" id="container">
+        <!-- For choosing city -->
+        <section class="header">
+
+            <article class="form">
+                <h2>Which city do you love?</h2>
+                <select id="europe" name="europe">
+                    <option value="London">London</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Madrid">Madrid</option>
+                    <option value="Lissabon">Lissabon</option>
+                    <option value="Stockholm">Stockholm</option>
+                    <option value="Rome">Rome</option>
+                    <option value="Athens">Athens</option>
+                    <option value="Berlin">Berlin</option>
+                </select>
+
+            </article>
+            <button class="button" id="buttonCity">Pick City</button>
+        </section>
+        <!-- For displaying weather today -->
+        <section class="today">
+            <article id="weatherToday">
+            </article>
+            <article id="currentWeather">
+            </article>
+            <img id="todayIcon" src="#">
+            <h1 id="headline"></h1>
+            <article class="forecast" id="forecast">
+                <!-- For displaying the weather to come  -->
+            </article>
+
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
