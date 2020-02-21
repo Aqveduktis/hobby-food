@@ -19,6 +19,7 @@ const fetchRestaurants = () => {
             console.log(json)
             console.log(restaurants)
             showing(restaurants)
+            const smallList = filter
         })
 }
 
@@ -36,15 +37,30 @@ const showing = (inputT) => {
     
 }
 const modeFunc = () => {
+    const myBtn = document.getElementById('button')
     const myThing = document.getElementById('container')
-    myThing.classList.toggle('light')
-}
+    const myBody = document.getElementById('myBody')
+    if (myBtn.innerHTML === 'Light Mode'){
+        myBtn.innerHTML = 'Dark Mode'
+        myBody.style.backgroundColor = 'Aliceblue'
+    }
+    else {
+        myBtn.innerHTML = 'Light Mode'
+        myBody.style.backgroundColor = '#333'
+    }
 
+    myThing.classList.toggle('light')
+    myBtn.classList.toggle('btnLight')
+
+}
 
 
 
 document.getElementById('button').onclick = modeFunc
 
-
+document.getElementById('buttonCheap').addEventListener("click", () => {
+    
+    
+});
 
 

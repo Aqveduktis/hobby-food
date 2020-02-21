@@ -1,17 +1,73 @@
-/* fancy button */
+
 
 body {
     background-color: #333;
     color: orange;
+    font-family: "Lato", "Helvetica", sans-serif
 }
  .container{
-        width: 1080px;
+     width: 1080px;
+     margin-left: auto;
+     margin-right: auto;
     }
+header {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr); 
+    align-items: center;
+    
+}
+header h1{
+    font-size: 3em;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
 
 .light {
  background-color: aliceblue;
     color: midnightblue;
     }
+
+ 
+
+.btnNormal {
+    width: 30em;
+    max-width: 40vw;
+    height: 2.5em;
+    text-decoration: none;
+    border-style: none;
+    justify-self: end;
+    border-radius: 50px;
+    color: #333;
+    background: #e67617;
+    box-shadow:  20px 20px 60px #c46414,  /*-20px -20px 60px #ff881a*/ ;
+    
+}
+.btnNormal:hover{
+    border-style: solid;
+    border-color: #333;
+    
+}
+.btnNormal:active{
+    
+box-shadow: inset 20px 20px 60px #160f3d, 
+            inset -20px -20px 60px #1e1553;
+}
+.btnLight {
+    color: aliceblue;
+    background: #1a1248;
+    box-shadow:  20px 20px 60px #160f3d, /* -20px -20px 60px #1e1553*/  ;
+    
+}
+.btnLight:hover {
+    border-style: solid;
+    border-color: aliceblue;
+}
+
+.btn:active {
+    box-shadow: inset 20px 20px 60px #c46414, 
+            inset -20px -20px 60px #ff881a;
+}
+
 .restaurants {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
