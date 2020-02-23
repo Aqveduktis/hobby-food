@@ -5,7 +5,7 @@
 //const cityApi = document.getElementById('europe').value
 const today = document.getElementById('currentWeather')
 const CityId = 302;
-const CousineId = 83;
+const CousineId = "american";
 const apiKey = "c3c54d8037eb79d54e15629d7d4d607e";
 const number = Math.ceil((Math.random() * 80))
 
@@ -19,11 +19,11 @@ const fetchRestaurants = () => {
     fetch(url, { headers: { "user-Key": apiKey } })
         .then(res => res.json())
         .then(json => {
-            restaurants = json.restaurants
+            console.log(json.restaurants)
+            const restaurantList = foodList(json.restaurants)
             //renderRestaurants("all")
             console.log(json)
-            console.log(restaurants)
-            showing(restaurants)
+            showList(restaurantList)
 
         })
 }
@@ -40,7 +40,7 @@ const fetchreview = (resKey) => {
 
 
 
-const showing = (inputT) => {
+const foodList = (inputT) => {
     const newList = []
     inputT.forEach((item, index, arr) => {
         const picture = ``
@@ -48,17 +48,33 @@ const showing = (inputT) => {
             id: item.restaurant.id,
             name: item.restaurant.name,
             kitchen: item.restaurant.cuisines,
-            photo: item.restaurant.photos[0].photo.url
-
-
+            photo: item.restaurant.photos[0].photo.url,
+            averagePrice: item.restaurant.average_cost_for_two,
+            priceRange: item.restaurant.price_range,
+            adress: item.restaurant.location.address,
+            city: item.restaurant.location.city,
+            ratingN: item.restaurant.user_rating.aggregate_rating,
+            ratingT: item.restaurant.user_rating.rating_text,
+            
         })
-        today.innerHTML += `<article><h1>${item.restaurant.name}</h1>
-        <img alt ="food" class = "food" src = "${item.restaurant.photos[0].photo.url}">
-        <p>cuisine: ${item.restaurant.cuisines} || establishment: ${item.restaurant.establishment[0]} || city: ${item.restaurant.location.city} || price: ${item.restaurant.price_range} </p></article>`
-
-    })
+    
+    
+})
     console.log(newList)
+    return newList 
+    }
+const showList = (inputT) => {
+    
+    inputT.forEach((item, index, arr) => {
+        
+        today.innerHTML += `<article class="food"><h1>${item.name}</h1>
+        <img alt ="food" src = "${item.photo}">
+        <p>cuisine: ${item.kitchen} || Rating: ${item.ratingT}  || city: ${item.city} || price: ${item.priceRange}</p></article>`
+    })
+    
 }
+
+
 const modeFunc = () => {
     const myBtn = document.getElementById('button')
     const myThing = document.getElementById('container')
