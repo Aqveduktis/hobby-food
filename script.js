@@ -25,6 +25,7 @@ const fetchRestaurants = () => {
             console.log(json)
             showList(restaurantList)
 
+
         })
 }
 
@@ -55,25 +56,30 @@ const foodList = (inputT) => {
             city: item.restaurant.location.city,
             ratingN: item.restaurant.user_rating.aggregate_rating,
             ratingT: item.restaurant.user_rating.rating_text,
-            
+
         })
-    
-    
-})
+
+
+    })
     console.log(newList)
-    return newList 
-    }
+    return newList
+}
 const showList = (inputT) => {
-    
+
     inputT.forEach((item, index, arr) => {
-        
+
         today.innerHTML += `<article class="food"><h1>${item.name}</h1>
         <img alt ="food" src = "${item.photo}">
         <p>cuisine: ${item.kitchen} || Rating: ${item.ratingT}  || city: ${item.city} || price: ${item.priceRange}</p></article>`
     })
-    
+
 }
 
+const sortList = (restaurants) => {
+
+    restaurants.sort((a, b) => (a.priceRange > b.priceRange) ? 1 : -1)
+    return restaurants
+}
 
 const modeFunc = () => {
     const myBtn = document.getElementById('button')
@@ -100,6 +106,11 @@ document.getElementById('button').onclick = modeFunc
 document.getElementById('buttonCheap').addEventListener("click", () => {
 
 
-});
+
+// });
+// filterPriceCheap.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     priceFilterCheap(myList, 1, 2)
+// })
 
 
