@@ -8,11 +8,12 @@ const CityId = 302;
 const CousineId = "american";
 const apiKey = "c3c54d8037eb79d54e15629d7d4d607e";
 const number = Math.ceil((Math.random() * 80))
+let restaurantList = []
 
 const url = `https://developers.zomato.com/api/v2.1/search?entity_id=${CityId}&entity_type=city&cuisines=${CousineId}&start=0&count=20`
 
 
-console.log(number)
+console.log("page number", number)
 
 const fetchRestaurants = () => {
 
@@ -20,7 +21,7 @@ const fetchRestaurants = () => {
         .then(res => res.json())
         .then(json => {
             console.log(json.restaurants)
-            const restaurantList = foodList(json.restaurants)
+            restaurantList = foodList(json.restaurants)
             //renderRestaurants("all")
             console.log(json)
             showList(restaurantList)
@@ -65,7 +66,7 @@ const foodList = (inputT) => {
     return newList
 }
 const showList = (inputT) => {
-
+        today.innerHTML = ""
     inputT.forEach((item, index, arr) => {
 
         today.innerHTML += `<article class="food"><h1>${item.name}</h1>
@@ -74,13 +75,13 @@ const showList = (inputT) => {
     })
 
 }
-
+// function that sorts by price (low to high)
 const sortList = (restaurants) => {
 
     restaurants.sort((a, b) => (a.priceRange > b.priceRange) ? 1 : -1)
     return restaurants
 }
-
+// function that changes colors
 const modeFunc = () => {
     const myBtn = document.getElementById('button')
     const myThing = document.getElementById('container')
@@ -99,18 +100,19 @@ const modeFunc = () => {
 
 }
 
-
-
+//Changes from dark mode to bright mode and back
 document.getElementById('button').onclick = modeFunc
 
-document.getElementById('buttonCheap').addEventListener("click", () => {
-
-
-
-// });
+//Sorts restaurants by price range
+document.getElementById('buttonCheap').addEventListener("click", (event) => {
+    event.preventDefault()
+    showList(sortList(restaurantList))
+    
+});
 // filterPriceCheap.addEventListener('click', (e) => {
 //     e.preventDefault()
 //     priceFilterCheap(myList, 1, 2)
 // })
 
 
+// singers.sort(compare);
