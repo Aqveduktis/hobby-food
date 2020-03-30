@@ -76,11 +76,24 @@ const showList = (inputT) => {
 
 }
 // function that sorts by price (low to high)
-const sortList = (restaurants) => {
+const sortList = (restaurants, mode) => {
+    if (mode === "cheap"){
 
-    restaurants.sort((a, b) => (a.priceRange > b.priceRange) ? 1 : -1)
+    restaurants.sort((a, b) => (a.priceRange > b.priceRange) ? 1 : -1)}
+    else if (mode === "good"){
+        restaurants.sort((a, b) => (a.ratingN < b.ratingN) ? 1 : -1)}
+    
     return restaurants
 }
+
+const filterList = (restaurants) => {
+    const veryGood = restaurants.filter((restaurant)=>{
+        return (restaurant.ratingT === "Excellent")
+    })
+    
+    return veryGood
+}
+
 // function that changes colors
 const modeFunc = () => {
     const myBtn = document.getElementById('button')
@@ -109,6 +122,18 @@ document.getElementById('buttonCheap').addEventListener("click", (event) => {
     showList(sortList(restaurantList))
     
 });
+document.getElementById('buttonGood').addEventListener("click", (event) => {
+    event.preventDefault()
+    showList(filterList(restaurantList))
+    
+});
+
+document.getElementById('sortSelect').addEventListener("change", (event) => {
+    event.preventDefault()
+    showList(sortList(restaurantList, event.target.value))
+    
+});
+
 // filterPriceCheap.addEventListener('click', (e) => {
 //     e.preventDefault()
 //     priceFilterCheap(myList, 1, 2)
