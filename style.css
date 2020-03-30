@@ -27,7 +27,9 @@ header h1{
     color: midnightblue;
     }
 
- 
+ .light article {
+     background-color: #AFDBF5;
+ }
 
 .btnNormal {
     width: 30em;
@@ -78,15 +80,10 @@ box-shadow: inset 20px 20px 60px #160f3d,
 }
 .food {
     background-color: #555;
-}
-
-.food:nth-child(5n+5) {  
-    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
     
 }
-.food:nth-child(3n+3) {  
-    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
-}
+
+
 /* 
 Insert Comment
 .restaurants article:nth-child(5n+5) {  
@@ -110,6 +107,7 @@ Insert Comment
     object-fit: cover;
     
 }
+
 p{
     max-width: 90%;
 }

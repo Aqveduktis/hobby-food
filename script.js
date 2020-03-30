@@ -3,7 +3,7 @@
 // curl -X GET --header "Accept: application/json" --header "user-key: "c3c54d8037eb79d54e15629d7d4d607e"" "https://developers.zomato.com/api/v2.1/reviews?res_id=17067963"
 
 //const cityApi = document.getElementById('europe').value
-const today = document.getElementById('currentWeather')
+const today = document.getElementById('restaurantGrid')
 const CityId = 302;
 const CousineId = "american";
 const apiKey = "c3c54d8037eb79d54e15629d7d4d607e";
