@@ -57,6 +57,7 @@ const foodList = (inputT) => {
             city: item.restaurant.location.city,
             ratingN: item.restaurant.user_rating.aggregate_rating,
             ratingT: item.restaurant.user_rating.rating_text,
+            highlights: item.restaurant.highlights
 
         })
 
@@ -112,22 +113,28 @@ const modeFunc = () => {
     myBtn.classList.toggle('btnLight')
 
 }
+//var n = fruits.includes("Mango");
+const deliveryFilter = (restaurants) => {
+
+   lunchRestaurant = restaurants.filter((restaurant)=>{
+        return (restaurant.highlights.includes("Delivery"))
+    })
+    console.log(lunchRestaurant)
+    return lunchRestaurant
+}
 
 //Changes from dark mode to bright mode and back
 document.getElementById('button').onclick = modeFunc
 
-//Sorts restaurants by price range
-document.getElementById('buttonCheap').addEventListener("click", (event) => {
-    event.preventDefault()
-    showList(sortList(restaurantList))
-    
-});
-document.getElementById('buttonGood').addEventListener("click", (event) => {
-    event.preventDefault()
-    showList(filterList(restaurantList))
-    
-});
+//Filter restaurants that Delivery
 
+
+document.getElementById('buttonDelivery').addEventListener("click", (event) => {
+    event.preventDefault()
+    showList(deliveryFilter(restaurantList))
+    
+});
+// Sorts restaurants by price range or rating
 document.getElementById('sortSelect').addEventListener("change", (event) => {
     event.preventDefault()
     showList(sortList(restaurantList, event.target.value))
