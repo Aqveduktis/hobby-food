@@ -69,6 +69,17 @@ box-shadow: inset 20px 20px 60px #160f3d,
     box-shadow: inset 20px 20px 60px #c46414, 
             inset -20px -20px 60px #ff881a;
 }
+.secondRow {
+    margin: 1em 0em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.secondRow label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .restaurants {
     display: grid;
@@ -120,18 +131,26 @@ p{
 
 @media screen and (max-width: 992px){
   .restaurants {
-   
     grid-template-columns: repeat(2, 1fr);
     
-      
-    
-}  
+    }  
 } 
 
 @media screen and (max-width: 576px) {
-      .restaurants {
-    grid-template-columns: repeat(1, 1fr);
+    .restaurants {
+        grid-template-columns: repeat(1, 1fr);
     
-}
+    }
+    .btnNormal {
+        width: 80%;
+    }
+    header h1{
+        font-size: 3em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+    .secondRow label {
+        flex-direction: column;
+    }
 }
 

@@ -12,7 +12,6 @@ let restaurantList = []
 
 const url = `https://developers.zomato.com/api/v2.1/search?entity_id=${CityId}&entity_type=city&cuisines=${CousineId}&start=0&count=20`
 
-
 console.log("page number", number)
 
 const fetchRestaurants = () => {
@@ -25,11 +24,8 @@ const fetchRestaurants = () => {
             //renderRestaurants("all")
             console.log(json)
             showList(restaurantList)
-
-
         })
 }
-
 fetchRestaurants()
 
 const fetchreview = (resKey) => {
@@ -39,8 +35,6 @@ const fetchreview = (resKey) => {
 
     })
 }
-
-
 
 const foodList = (inputT) => {
     const newList = []
@@ -61,7 +55,6 @@ const foodList = (inputT) => {
 
         })
 
-
     })
     console.log(newList)
     return newList
@@ -71,7 +64,7 @@ const showList = (inputT) => {
     inputT.forEach((item, index, arr) => {
 
         today.innerHTML += `<article class="food"><h1>${item.name}</h1>
-        <img alt ="food" src = "${item.photo}">
+        <img alt ="${item.name}"  src = "${item.photo}">
         <p>cuisine: ${item.kitchen} || Rating: ${item.ratingT}  || city: ${item.city} || price: ${item.priceRange}</p></article>`
     })
 
